@@ -20,9 +20,11 @@ def get_candidate_id(uid):
 """возвращает кандидатов по имени"""
 def get_candidates_by_name(uname):
     candidates = load_candidates_from_json()
+    result = []
     for candidate in candidates:
-        if uname in candidate['name']:
-            return candidate
+        if uname in candidate['name'].lower():
+            result.append(candidate)
+    return result
 
 
 

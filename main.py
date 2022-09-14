@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def page_main():
     candidates = load_candidates_from_json()
-    return render_template('list.html', candidates=candidates)
+    return render_template("list.html", candidates=candidates)
 
 
 @app.route('/candidate/<int:uid>')
@@ -21,12 +21,12 @@ def page_candidate(uid):
 @app.route('/search/<candidate_name>')
 def page_name(candidate_name):
         candidates = get_candidates_by_name(candidate_name)
-        return render_template('search.html', candidates=candidates)
+        return render_template("search.html", candidates=candidates)
 
 @app.route('/skills/<skills_name>')
 def page_skill(skills_name):
         candidates = get_candidates_by_skill(skills_name)
-        return render_template('skill.html', skills=skills_name, candidates=candidates)
+        return render_template("skill.html", skills=skills_name, candidates=candidates)
 
 
 app.run()
